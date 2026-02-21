@@ -1,0 +1,305 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Build multi-page website for Launchpad Studio with demo store and product detail pages",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create multi-page navigation structure with separate routes for Home, Services, Launch Packages/Pricing, Demo Store, How It Works, Testimonials, and Contact/Book a Consultation pages",
+      "acceptanceCriteria": [
+        "Navigation menu visible on all pages with links to each section",
+        "Clicking navigation links loads separate page routes, not scroll anchors",
+        "All 7 pages are accessible via navigation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add React Router configuration with routes for Home (/), Services (/services), Launch Packages (/packages), Demo Store (/store), How It Works (/how-it-works), Testimonials (/testimonials), and Contact (/contact) pages"
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "create",
+          "description": "Create navigation component with links to all 7 pages using React Router Link components, ensuring navigation menu is reusable across all pages"
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create layout wrapper component that includes Navigation component and renders child page content, to be used by all pages for consistent header/navigation placement"
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build Home page with business overview, testimonial preview section, and strong CTA buttons for 'Book Free Consultation' and 'View Launch Packages'",
+      "acceptanceCriteria": [
+        "Home page displays Launchpad Studio business description",
+        "Preview of 2-3 testimonials visible on Home page",
+        "At least two prominent CTA buttons present",
+        "CTAs link to relevant pages (Contact and Launch Packages)"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create Home page component with hero section using generated image frontend/public/assets/generated/hero-bg.dim_1920x1080.png as background, business overview section describing Launchpad Studio's mission, testimonial preview section displaying 2-3 testimonials, and two prominent CTA buttons ('Book Free Consultation' linking to /contact and 'View Launch Packages' linking to /packages)"
+        },
+        {
+          "path": "frontend/src/components/TestimonialCard.tsx",
+          "operation": "create",
+          "description": "Create reusable testimonial card component that displays client name, role, and feedback quote, to be used on Home page preview and Testimonials page"
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create Services page detailing brand identity and visual design, website and portfolio development, ecommerce and merch store setup, digital product launches (ebooks, courses, templates), and creator monetisation and growth strategy",
+      "acceptanceCriteria": [
+        "Services page lists all 5 service categories",
+        "Each service has a title and descriptive text",
+        "Page includes at least one CTA button"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Services.tsx",
+          "operation": "create",
+          "description": "Create Services page component displaying all 5 service categories (Brand identity and visual design, Website and portfolio development, Ecommerce and merch store setup, Digital product launches, Creator monetisation and growth strategy) with titles and descriptive text for each, plus at least one CTA button linking to /contact or /packages"
+        },
+        {
+          "path": "frontend/src/components/ServiceCard.tsx",
+          "operation": "create",
+          "description": "Create reusable service card component to display individual service with icon, title, and description text"
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build Launch Packages/Pricing page displaying service packages with realistic Indian Rupee pricing examples (₹1,999, ₹4,999, ₹14,999) and clear CTAs",
+      "acceptanceCriteria": [
+        "Pricing page displays at least 3 package tiers",
+        "All prices shown in ₹ INR format",
+        "Each package includes features/benefits and a CTA button",
+        "No dollar pricing appears anywhere"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Packages.tsx",
+          "operation": "create",
+          "description": "Create Launch Packages/Pricing page component displaying at least 3 package tiers with pricing in ₹ INR format (e.g., ₹1,999, ₹4,999, ₹14,999), features/benefits list for each package, and CTA button per package linking to /contact"
+        },
+        {
+          "path": "frontend/src/components/PricingCard.tsx",
+          "operation": "create",
+          "description": "Create reusable pricing card component to display package name, price in ₹ INR, features list, and CTA button"
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Create Demo Store page showcasing at least 3 products (Creator Hoodie merch, Monetisation Ebook digital product, Online Course/Digital Template) with product cards that are fully clickable and link to separate product detail pages",
+      "acceptanceCriteria": [
+        "Demo Store page displays product grid with at least 3 products",
+        "Products include: Creator Hoodie, Monetisation Ebook, and Online Course/Digital Template",
+        "Each product card shows image, name, price in ₹ INR, and CTA button",
+        "Clicking product or CTA navigates to dedicated product detail page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Store.tsx",
+          "operation": "create",
+          "description": "Create Demo Store page component displaying product grid with at least 3 products: Creator Hoodie (using frontend/public/assets/generated/creator-hoodie.dim_800x800.png), Monetisation Ebook (using frontend/public/assets/generated/monetisation-ebook.dim_800x800.png), and Online Course/Digital Template (using frontend/public/assets/generated/digital-course.dim_800x800.png). Each product card shows image, name, price in ₹ INR, and is fully clickable linking to /store/:productId detail page"
+        },
+        {
+          "path": "frontend/src/components/ProductCard.tsx",
+          "operation": "create",
+          "description": "Create reusable product card component that displays product image, name, price in ₹ INR, and CTA button, wrapping entire card in React Router Link to product detail page"
+        },
+        {
+          "path": "frontend/src/data/products.ts",
+          "operation": "create",
+          "description": "Create products data file containing array of product objects with id, name, price (₹ INR), image path, short description, and full description for Creator Hoodie, Monetisation Ebook, and Online Course/Digital Template"
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build individual product detail pages for each Demo Store product showing product image, name, full description, price in ₹ INR, and clear 'Buy Now' or 'Enquire Now' CTA button",
+      "acceptanceCriteria": [
+        "Each product has its own detail page route",
+        "Detail page displays: product image, name, description, price (₹ INR), and CTA",
+        "CTA button is prominently displayed",
+        "Product details are not shown on Demo Store listing page"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ProductDetail.tsx",
+          "operation": "create",
+          "description": "Create ProductDetail page component that receives productId from route params, looks up product from products data, and displays large product image, product name, full description, price in ₹ INR, and prominent 'Enquire Now' CTA button linking to /contact"
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /store/:productId that renders ProductDetail page component"
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create How It Works page explaining the service process in 3-4 clear steps: Brand Strategy & Planning, Website and Store Setup, Product & Merch Launch, and Monetisation & Growth, using icons and short descriptions",
+      "acceptanceCriteria": [
+        "How It Works page displays 4 process steps",
+        "Each step has an icon, title, and brief description",
+        "Steps are: Brand Strategy & Planning, Website and Store Setup, Product & Merch Launch, Monetisation & Growth",
+        "Visual hierarchy makes the process flow clear"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HowItWorks.tsx",
+          "operation": "create",
+          "description": "Create How It Works page component displaying 4 process steps with icons (using frontend/public/assets/generated/icon-strategy.dim_128x128.png, frontend/public/assets/generated/icon-website.dim_128x128.png, frontend/public/assets/generated/icon-launch.dim_128x128.png, frontend/public/assets/generated/icon-growth.dim_128x128.png), titles (Brand Strategy & Planning, Website and Store Setup, Product & Merch Launch, Monetisation & Growth), and brief descriptions with clear visual hierarchy and flow"
+        },
+        {
+          "path": "frontend/src/components/ProcessStep.tsx",
+          "operation": "create",
+          "description": "Create reusable process step component that displays step number, icon, title, and description text"
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build dedicated Testimonials page displaying client testimonials with name, role (Content Creator/Influencer/Coach), and feedback text using cards or slider layout, including examples like 'Launchpad Studio helped me launch my merch store in under a week with a premium brand feel' and 'The website and product setup completely transformed how I monetise my audience'",
+      "acceptanceCriteria": [
+        "Testimonials page shows at least 3 testimonials",
+        "Each testimonial displays client name, role, and feedback quote",
+        "Testimonials use card or slider layout for visual prominence",
+        "At least one testimonial matches the provided examples"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Testimonials.tsx",
+          "operation": "create",
+          "description": "Create Testimonials page component displaying at least 3 testimonials in card layout, each showing client name, role (Content Creator/Influencer/Coach), and feedback quote. Include testimonials such as 'Launchpad Studio helped me launch my merch store in under a week with a premium brand feel' and 'The website and product setup completely transformed how I monetise my audience'"
+        },
+        {
+          "path": "frontend/src/data/testimonials.ts",
+          "operation": "create",
+          "description": "Create testimonials data file containing array of testimonial objects with client name, role, and feedback quote, including the specified example testimonials"
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create Contact/Book a Consultation page with consultation booking form and contact details",
+      "acceptanceCriteria": [
+        "Contact page includes a consultation booking form",
+        "Form has fields for name, email, and message/inquiry",
+        "Contact details or business information is displayed",
+        "Page includes prominent CTA button"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Contact.tsx",
+          "operation": "create",
+          "description": "Create Contact/Book a Consultation page component with consultation booking form containing fields for name, email, and message/inquiry, contact details or business information display, and prominent submit CTA button"
+        },
+        {
+          "path": "frontend/src/components/ContactForm.tsx",
+          "operation": "create",
+          "description": "Create contact form component with controlled inputs for name, email, and message fields, form validation, and submit button with loading state"
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Implement modern, premium, creator-focused design with clean layouts, strong visual hierarchy, consistent typography and spacing, and professional footer with navigation links, contact details, and copyright text across all pages",
+      "acceptanceCriteria": [
+        "Design feels modern and professional throughout",
+        "Typography and spacing are consistent across all pages",
+        "Visual hierarchy guides user attention effectively",
+        "Footer appears on all pages with navigation, contact info, and copyright",
+        "Overall aesthetic is creator-focused and premium"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with modern, premium design system including consistent typography scale, spacing variables, and creator-focused aesthetic with clean layouts and strong visual hierarchy"
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure Tailwind with custom theme extending default config to include modern color palette, typography settings, and spacing scale that conveys premium quality and professionalism suitable for creator-focused brand"
+        },
+        {
+          "path": "frontend/src/components/Footer.tsx",
+          "operation": "create",
+          "description": "Create footer component with navigation links to all pages, contact details, and copyright text, to be included in Layout component and displayed consistently across all pages"
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Update Layout component to include Footer component after page content, ensuring footer appears on all pages"
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Ensure every page includes at least one clear, prominent call-to-action button with conversion-focused text like 'Book Free Consultation', 'View Launch Packages', or 'See Product Details' that links to relevant pages or forms",
+      "acceptanceCriteria": [
+        "Every page has at least one CTA button visible",
+        "CTA text is action-oriented and conversion-focused",
+        "CTAs link to appropriate pages or forms (not scroll anchors)",
+        "Buttons are visually prominent and consistent in style"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Button.tsx",
+          "operation": "create",
+          "description": "Create reusable Button component with primary and secondary variants, consistent styling for prominent display, and support for React Router Link integration for navigation CTAs"
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Verify Home page includes at least two CTA buttons with conversion-focused text ('Book Free Consultation', 'View Launch Packages') linking to /contact and /packages"
+        },
+        {
+          "path": "frontend/src/pages/Services.tsx",
+          "operation": "modify",
+          "description": "Add at least one CTA button to Services page with action-oriented text linking to /contact or /packages"
+        },
+        {
+          "path": "frontend/src/pages/HowItWorks.tsx",
+          "operation": "modify",
+          "description": "Add at least one CTA button to How It Works page with conversion-focused text linking to /contact or /packages"
+        },
+        {
+          "path": "frontend/src/pages/Testimonials.tsx",
+          "operation": "modify",
+          "description": "Add at least one CTA button to Testimonials page with action-oriented text linking to /contact or /packages"
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Design the site with a modern, sophisticated color scheme and visual style that conveys professionalism, confidence, and premium quality suitable for a creator-focused digital marketing studio, using a cohesive palette and consistent design language throughout all pages",
+      "acceptanceCriteria": [
+        "Color scheme is modern and sophisticated (not blue & purple unless intentional)",
+        "Design conveys premium quality and professionalism",
+        "Visual style is consistent across all pages",
+        "Overall aesthetic matches a creator-focused brand studio positioning"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Define modern, sophisticated color palette in Tailwind config (avoiding generic blue & purple unless intentional) that conveys premium quality, professionalism, and confidence suitable for creator-focused brand studio, ensuring cohesive color scheme throughout all pages"
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Apply modern, sophisticated visual style with premium design language including refined shadows, borders, and interactive states that maintain consistency across all pages and convey professional creator-focused aesthetic"
+        }
+      ]
+    }
+  ]
+}

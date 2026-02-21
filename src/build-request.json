@@ -1,0 +1,278 @@
+{
+  "kind": "build_request",
+  "title": "Build multi-page website for Launchpad Studio with demo store and product detail pages",
+  "projectName": "Launchpad Studio",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create multi-page navigation structure with separate routes for Home, Services, Launch Packages/Pricing, Demo Store, How It Works, Testimonials, and Contact/Book a Consultation pages",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The website must be multi-page, not a single scrolling page",
+          "Each navigation item must open a new page, not scroll within the same page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigation menu visible on all pages with links to each section",
+        "Clicking navigation links loads separate page routes, not scroll anchors",
+        "All 7 pages are accessible via navigation"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Build Home page with business overview, testimonial preview section, and strong CTA buttons for 'Book Free Consultation' and 'View Launch Packages'",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "A testimonial preview section on the Home page",
+          "Minimal homepage clutter focused on overview and conversion"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Home page displays Launchpad Studio business description",
+        "Preview of 2-3 testimonials visible on Home page",
+        "At least two prominent CTA buttons present",
+        "CTAs link to relevant pages (Contact and Launch Packages)"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create Services page detailing brand identity and visual design, website and portfolio development, ecommerce and merch store setup, digital product launches (ebooks, courses, templates), and creator monetisation and growth strategy",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Brand identity and visual design",
+          "Website and portfolio development",
+          "Ecommerce and merch store setup",
+          "Digital product launches (ebooks, courses, templates)",
+          "Creator monetisation and growth strategy"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Services page lists all 5 service categories",
+        "Each service has a title and descriptive text",
+        "Page includes at least one CTA button"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build Launch Packages/Pricing page displaying service packages with realistic Indian Rupee pricing examples (₹1,999, ₹4,999, ₹14,999) and clear CTAs",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Display all pricing in Indian Rupees (₹ INR)",
+          "Use realistic example pricing such as: ₹1,999, ₹4,999, ₹14,999"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Pricing page displays at least 3 package tiers",
+        "All prices shown in ₹ INR format",
+        "Each package includes features/benefits and a CTA button",
+        "No dollar pricing appears anywhere"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Create Demo Store page showcasing at least 3 products (Creator Hoodie merch, Monetisation Ebook digital product, Online Course/Digital Template) with product cards that are fully clickable and link to separate product detail pages",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Include a Demo Store showcasing both physical and digital products",
+          "Each product must be fully clickable",
+          "When a user clicks View Product or Buy Now, it should open a separate product detail page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Demo Store page displays product grid with at least 3 products",
+        "Products include: Creator Hoodie, Monetisation Ebook, and Online Course/Digital Template",
+        "Each product card shows image, name, price in ₹ INR, and CTA button",
+        "Clicking product or CTA navigates to dedicated product detail page"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Build individual product detail pages for each Demo Store product showing product image, name, full description, price in ₹ INR, and clear 'Buy Now' or 'Enquire Now' CTA button",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "it should open a separate product detail page that includes: Product image, Product name, Product description, Price, Clear call-to-action button (Buy Now / Enquire Now)",
+          "Do not display full product details on the same page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Each product has its own detail page route",
+        "Detail page displays: product image, name, description, price (₹ INR), and CTA",
+        "CTA button is prominently displayed",
+        "Product details are not shown on Demo Store listing page"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create How It Works page explaining the service process in 3-4 clear steps: Brand Strategy & Planning, Website and Store Setup, Product & Merch Launch, and Monetisation & Growth, using icons and short descriptions",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create a How It Works page explaining the service process in 3–4 steps: Brand Strategy & Planning, Website and Store Setup, Product & Merch Launch, Monetisation & Growth",
+          "Use icons and short descriptions for clarity"
+        ]
+      },
+      "acceptanceCriteria": [
+        "How It Works page displays 4 process steps",
+        "Each step has an icon, title, and brief description",
+        "Steps are: Brand Strategy & Planning, Website and Store Setup, Product & Merch Launch, Monetisation & Growth",
+        "Visual hierarchy makes the process flow clear"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Build dedicated Testimonials page displaying client testimonials with name, role (Content Creator/Influencer/Coach), and feedback text using cards or slider layout, including examples like 'Launchpad Studio helped me launch my merch store in under a week with a premium brand feel' and 'The website and product setup completely transformed how I monetise my audience'",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "A dedicated Testimonials page",
+          "Each testimonial should include: Client name, Client role (Content Creator / Influencer / Coach), Short feedback",
+          "Display testimonials using cards or sliders so they stand out visually"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Testimonials page shows at least 3 testimonials",
+        "Each testimonial displays client name, role, and feedback quote",
+        "Testimonials use card or slider layout for visual prominence",
+        "At least one testimonial matches the provided examples"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Create Contact/Book a Consultation page with consultation booking form and contact details",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Contact / Book a Consultation"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Contact page includes a consultation booking form",
+        "Form has fields for name, email, and message/inquiry",
+        "Contact details or business information is displayed",
+        "Page includes prominent CTA button"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Implement modern, premium, creator-focused design with clean layouts, strong visual hierarchy, consistent typography and spacing, and professional footer with navigation links, contact details, and copyright text across all pages",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Modern, premium, creator-focused design",
+          "Clean layouts with strong visual hierarchy",
+          "Consistent fonts, spacing, and alignment",
+          "Professional footer with navigation links, contact details, and copyright text"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Design feels modern and professional throughout",
+        "Typography and spacing are consistent across all pages",
+        "Visual hierarchy guides user attention effectively",
+        "Footer appears on all pages with navigation, contact info, and copyright",
+        "Overall aesthetic is creator-focused and premium"
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "text": "Ensure every page includes at least one clear, prominent call-to-action button with conversion-focused text like 'Book Free Consultation', 'View Launch Packages', or 'See Product Details' that links to relevant pages or forms",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Include at least one clear CTA on every page",
+          "Use strong CTA buttons such as: 'Book Free Consultation', 'View Launch Packages', 'See Product Details'",
+          "Ensure all buttons link to pages or forms, not just scrolling"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Every page has at least one CTA button visible",
+        "CTA text is action-oriented and conversion-focused",
+        "CTAs link to appropriate pages or forms (not scroll anchors)",
+        "Buttons are visually prominent and consistent in style"
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "text": "Design the site with a modern, sophisticated color scheme and visual style that conveys professionalism, confidence, and premium quality suitable for a creator-focused digital marketing studio, using a cohesive palette and consistent design language throughout all pages",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Professional, modern, confident, and business-oriented",
+          "The website should feel like a real, professional service-based digital business"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Color scheme is modern and sophisticated (not blue & purple unless intentional)",
+        "Design conveys premium quality and professionalism",
+        "Visual style is consistent across all pages",
+        "Overall aesthetic matches a creator-focused brand studio positioning"
+      ]
+    }
+  ],
+  "constraints": [
+    "All pricing must be displayed in Indian Rupees (₹ INR) with no dollar pricing",
+    "Website must be multi-page with separate routes, not a single scrolling page",
+    "Product detail must not be displayed on the Demo Store listing page - each product requires its own detail page"
+  ],
+  "nonGoals": [
+    "Single-page scrolling website",
+    "Dollar-based pricing",
+    "Portfolio-style layout instead of business website",
+    "Showing full product details on listing pages"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Modern abstract hero background image with gradient overlay suitable for digital marketing studio homepage (hero-bg.dim_1920x1080.png)",
+      "Creator Hoodie product mockup showing branded merchandise with professional studio lighting (creator-hoodie.dim_800x800.png)",
+      "Digital ebook cover mockup for Monetisation Ebook product with professional design (monetisation-ebook.dim_800x800.png)",
+      "Online course or digital template product image with modern interface preview (digital-course.dim_800x800.png)",
+      "Brand Strategy icon illustration in modern flat style for How It Works section (icon-strategy.dim_128x128.png)",
+      "Website Setup icon illustration in modern flat style for How It Works section (icon-website.dim_128x128.png)",
+      "Product Launch icon illustration in modern flat style for How It Works section (icon-launch.dim_128x128.png)",
+      "Growth & Monetisation icon illustration in modern flat style for How It Works section (icon-growth.dim_128x128.png)"
+    ],
+    "edits": []
+  }
+}
